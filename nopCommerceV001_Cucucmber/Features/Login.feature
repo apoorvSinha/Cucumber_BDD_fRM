@@ -1,4 +1,6 @@
 Feature: Login
+
+@sanity
   Scenario: Successful login with valid credentials
     Given User launch chrome browser
     When user enters URL "https://admin-demo.nopcommerce.com/login?ReturnUrl=%2Fadmin%2F"
@@ -8,7 +10,7 @@ Feature: Login
     When user clicks on Logout link
     Then Page title should be "Your store. Login"
     And Close the browser
-    
+@regression 
 Scenario Outline: Login data driven
 		Given User launch chrome browser
     When user enters URL "https://admin-demo.nopcommerce.com/login?ReturnUrl=%2Fadmin%2F"

@@ -1,5 +1,6 @@
 Feature: Customers
 
+
  Background: Below are the common steps for each scenario
 		Given User launch chrome browser
 		When user enters URL "https://admin-demo.nopcommerce.com/login?ReturnUrl=%2Fadmin%2F"
@@ -21,7 +22,7 @@ Feature: Customers
 #		Then User can view confirmation message "The new customer has been added successfully"
 #		Then Close the browser
 			
-			
+@regression		
 Scenario: Search customer by EmailID
 		
 		When User click on customers menu
@@ -30,7 +31,8 @@ Scenario: Search customer by EmailID
 		When click on search button
 		Then User should find Email in the search table
 		Then Close the browser
-		
+
+@regression	
 Scenario: Search customer by Name
 	
 		When User click on customers menu

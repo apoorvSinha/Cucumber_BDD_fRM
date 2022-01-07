@@ -61,5 +61,4 @@ public class CustomerPageStepDefs extends BaseSteps {
 //        cr.EnterSystemName("Nvidia");
 //        cr.EnterPurachsedWithProducts("Lenovo IdeaCentre 600 All-in-One PC");
 // cr.SaveCustomerRole();
-// System.out.println(cr.GeneratedMessage());
-//        Assert.assertEquals(cr.GeneratedMessage(), msg);
+

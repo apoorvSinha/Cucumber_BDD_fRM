@@ -1,4 +1,5 @@
 package StepDefs;
+import io.cucumber.java.After;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +14,7 @@ public class CustomerPageStepDefs extends BaseSteps {
     public void user_clicks_on_customer_main_menu_item() throws InterruptedException {
         cr = new CustomerRoles(driver);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
         cr.getPageTitle();
         cr.ClickCustomerMenu();
 
@@ -48,17 +50,9 @@ public class CustomerPageStepDefs extends BaseSteps {
     public void user_gets_a_message(String msg) {
 
     }
-
+    @After
+    public void TearDown(){
+        driver.quit();
+    }
 }
-//
-//  cr.GetPreRegisteredRoles();
-// cr.AddNewCustomerRole();
-// cr.AddNewName("Rajesh");
-//        cr.CheckBoxActiveYes();
-//        cr.CheckBoxFreeShippingYes();
-//        cr.CheckBoxOverrideDefaultTaxYes("Included");
-//        cr.EnablePasswordLifeTimeYes();
-//        cr.EnterSystemName("Nvidia");
-//        cr.EnterPurachsedWithProducts("Lenovo IdeaCentre 600 All-in-One PC");
-// cr.SaveCustomerRole();
 

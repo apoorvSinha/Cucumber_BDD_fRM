@@ -6,13 +6,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
 public class Logs_Page {
     WebDriver ldriver;
     public Logs_Page(WebDriver rdriver){
         ldriver = rdriver;
         PageFactory.initElements(ldriver, this);
     }
-    @FindBy(xpath = "//a//p[contains(text(),'System')]")
+    @FindBy(xpath = "//li//a//p[contains(text(),'System')]")
     WebElement SystemMainMenu;
     @FindBy(xpath = "//a//p[contains(text(),'Log')]")
     WebElement LogSubMenu;
@@ -22,11 +24,14 @@ public class Logs_Page {
     WebElement SearchButton;
     @FindBy(xpath = "//*[@id=\"log-grid_next\"]/a/i")
     WebElement NextButton;
+    @FindBy(xpath = "//table//tr//td[3]")
+    List<WebElement> logMessages;
+
 
     public void ClickSystemMainMenu(){
         SystemMainMenu.click();
     }
-    public void ClcikLogsSubMenu(){
+    public void ClickLogsSubMenu(){
         LogSubMenu.click();
     }
     public void ClickLogLevel(String lg_level){
@@ -48,6 +53,13 @@ public class Logs_Page {
         }
 
     }
+    public void getAllMessages(){
+        for(WebElement logMessage : logMessages){
+            System.out.println(logMessage.getText());
+
+        }
+    }
+
 
     public void ClickSearchButton(){
         SearchButton.click();

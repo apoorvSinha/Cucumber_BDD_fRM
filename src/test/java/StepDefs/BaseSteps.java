@@ -11,7 +11,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjetcs.CustomerRoles;
 import pageObjetcs.LoginPage;
+import pageObjetcs.Logs_Page;
 import pageObjetcs.Sales_orders;
+
+import javax.swing.text.AttributeSet;
 
 
 public class BaseSteps {
@@ -20,6 +23,7 @@ public class BaseSteps {
     public CustomerRoles cr;
     public Sales_orders so;
     public JavascriptExecutor js;
+    public Logs_Page logs;
 
     protected WebDriver getWebDriver(){
         if (driver == null){
@@ -42,6 +46,19 @@ public class BaseSteps {
             }
         }
         return sum;
+    }
+
+    public static boolean NextPageControl(WebElement elem){
+        boolean flag = false;
+        String page = elem.getText();
+        String[] page_str = page.split(" -");
+        String[] num_page_str = {};
+        if (Integer.parseInt(page_str[1]) < Integer.parseInt(page_str[3])){
+            flag = true;
+        }
+
+        return flag;
+
     }
 
 }

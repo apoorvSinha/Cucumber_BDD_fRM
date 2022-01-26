@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         publish = true,
         features = ".//Features/logs.feature",
         glue = "StepDefs",
-        dryRun = true,
+        dryRun = false,
         monochrome = true,
         plugin = {"pretty",
                 "html:test-output"

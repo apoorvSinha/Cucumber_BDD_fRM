@@ -51,8 +51,8 @@ public class BaseSteps {
     public static boolean NextPageControl(WebElement elem){
         boolean flag = false;
         String page = elem.getText();
-        String[] page_str = page.split(" -");
-        String[] num_page_str = {};
+        String[] page_str = page.split("[ -]");
+
         if (Integer.parseInt(page_str[1]) < Integer.parseInt(page_str[3])){
             flag = true;
         }

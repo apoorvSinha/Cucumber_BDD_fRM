@@ -1,5 +1,7 @@
 package pageObjetcs;
 
+import StepDefs.BaseSteps;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -54,9 +56,10 @@ public class Logs_Page {
 
     }
     public void getAllMessages(){
+        int msg_number = 1;
         for(WebElement logMessage : logMessages){
-            System.out.println(logMessage.getText());
-
+            System.out.println("message is: "+msg_number+logMessage.getText());
+            msg_number++;
         }
     }
 
@@ -65,7 +68,9 @@ public class Logs_Page {
         SearchButton.click();
     }
     public void ClickNextButton(){
-        NextButton.click();
+        while(BaseSteps.NextPageControl(ldriver.findElement(By.xpath("//div[@class='dataTables_info']")))){
+            NextButton.click();
+            getAllMessages();
+        }
     }
-
 }

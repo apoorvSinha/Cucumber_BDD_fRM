@@ -6,17 +6,11 @@ Feature: Get all logs of the system
     And Click on login
     Then page title should be "Dashboard / nopCommerce administration"
 
-    Scenario Outline: User analyzes log tables to see different types of logs
-      Given User clicks on System on main menu
-      And User cliks on log menu of SubMenu
-      Then User selects the log level with "<log Level options>"
-      And User scrolls multiple pages for all alerts
-      Then User closes the browser
 
-      Examples:
-        |log level options|
-        |Debug            |
-        |Information      |
-        |Warning          |
-        |Error            |
-        |Fatal            |
+    Scenario:User analyzes log tables to see different types of logs
+      Given User clicks on System on main menu
+      And User clicks on log menu of SubMenu
+      Then User selects the log level with "Error"
+      And User scrolls multiple pages for all alerts
+
+
